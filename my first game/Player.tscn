@@ -1,0 +1,66 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Sprites/nave-espacial frente.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/nave-espacial frente 2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/nave-espacial frente 4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Nave espacial frente 3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Nave espacial izquierda 4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/nave-espacial derecha.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Nave espacial izquierda 3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/nave-espacial izquierda.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/nave-espacial derecha 2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/nave-espacial abajo 2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/nave-espacial izquierda 2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/nave-espacial abajo.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Nave espacial derecha 3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/nave-espacial derecha 4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/nave-espacial abajo 4.png" type="Texture" id=15]
+[ext_resource path="res://Player.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Derecha",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Abajo",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Frente",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Izquierda",
+"speed": 15.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 41.2796
+
+[node name="Player" type="Area2D"]
+position = Vector2( 263.735, 201.962 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+velocidad = 400
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 4.74585, 4.24182 )
+scale = Vector2( 0.216479, 0.242892 )
+frames = SubResource( 1 )
+animation = "Frente"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 11.4183, 3.91913 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

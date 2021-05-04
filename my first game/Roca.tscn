@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/rock/rock 3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/rock/rock 4.png" type="Texture" id=2]
+[ext_resource path="res://Roca.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Grande",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Pequeño",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 10.9282
+
+[node name="Roca" type="RigidBody2D"]
+position = Vector2( 218.37, 246.921 )
+collision_layer = 0
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 133.638, 135.133 )
+scale = Vector2( 0.406207, 0.405399 )
+frames = SubResource( 1 )
+animation = "Pequeño"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 129.719, 135.959 )
+rotation = 1.62141
+shape = SubResource( 2 )
+
+[node name="visibilidad" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 136.165, 138.54 )
+scale = Vector2( 0.552208, 0.448802 )
+[connection signal="screen_exited" from="visibilidad" to="." method="_on_visibilidad_screen_exited"]
