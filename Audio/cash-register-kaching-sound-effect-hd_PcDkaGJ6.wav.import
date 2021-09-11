@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cash-register-kaching-sound-effect-hd_PcDkaGJ6.wav-8b48c23e488cac4b449a88a6d923f24e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/cash-register-kaching-sound-effect-hd_PcDkaGJ6.wav"
+dest_files=[ "res://.import/cash-register-kaching-sound-effect-hd_PcDkaGJ6.wav-8b48c23e488cac4b449a88a6d923f24e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
